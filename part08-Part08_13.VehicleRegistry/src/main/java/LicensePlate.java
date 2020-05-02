@@ -19,4 +19,23 @@ public class LicensePlate {
         return country + " " + liNumber;
     }
 
+    @Override
+    public int hashCode() {
+        return this.country.hashCode() + this.liNumber.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        LicensePlate match = (LicensePlate) o;
+
+        if (this.country == match.country && this.liNumber == match.liNumber) {
+            return true;
+        }
+
+        return false;
+    }
 }
