@@ -13,13 +13,12 @@ public class Book implements Packable {
 
     @Override
     public double weight() {
-        return  this.weight;
+        return this.weight;
     }
 
     @Override
     public String toString() {
-        return this.author+ ": "+this.name; //To change body of generated methods, choose Tools | Templates.
+        return this.author + ": " + this.name; 
     }
-    
-    
+
 }
