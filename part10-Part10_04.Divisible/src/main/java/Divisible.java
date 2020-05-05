@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 public class Divisible {
 
+            
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>();
         numbers.add(3);
@@ -19,7 +20,9 @@ public class Divisible {
     }
 
     public static ArrayList<Integer> divisible(ArrayList<Integer> numbers) {
-        return new ArrayList<>();
+        return  numbers.stream()
+                .filter(p -> p%2==0 || p%3==0 || p%5==0)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
