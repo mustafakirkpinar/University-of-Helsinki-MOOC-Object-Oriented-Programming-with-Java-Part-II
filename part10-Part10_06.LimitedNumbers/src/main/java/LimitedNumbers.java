@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LimitedNumbers {
-
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List <Integer> inputs = new ArrayList();
+        List<Integer> inputs = new ArrayList();
         int input;
         while (true) {
             input = Integer.valueOf(scanner.nextLine());
@@ -16,6 +16,6 @@ public class LimitedNumbers {
             }
             inputs.add(input);
         }
-        inputs.stream().filter(i-> i<6 & i>0).forEach(i-> System.out.println(i));
+        inputs.stream().filter(i -> i < 6 & i > 0).forEach(i -> System.out.println(i));
     }
 }
