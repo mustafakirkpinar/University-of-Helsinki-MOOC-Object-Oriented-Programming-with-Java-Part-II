@@ -1,5 +1,5 @@
 
-import java.io.IOException;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Level;
@@ -21,7 +21,7 @@ public class LiteracyComparison {
             Logger.getLogger(LiteracyComparison.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         printSortedLiteracy("literacy.csv");
     }
 }

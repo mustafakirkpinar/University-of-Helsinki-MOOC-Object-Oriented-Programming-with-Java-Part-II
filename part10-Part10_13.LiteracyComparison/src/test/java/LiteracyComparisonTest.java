@@ -19,11 +19,7 @@ public class LiteracyComparisonTest {
 
     @Test
     public void literacyComparisonTest() {
-        try {
-            LiteracyComparison.main(new String[]{});
-        } catch (IOException ex) {
-            Logger.getLogger(LiteracyComparisonTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LiteracyComparison.main(new String[]{});
         String[] output = io.getSysOut().split("\n");
 
         String[] expected = this.expected.split("\n");
