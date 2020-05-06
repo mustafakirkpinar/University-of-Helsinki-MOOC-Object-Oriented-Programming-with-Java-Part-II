@@ -1,6 +1,9 @@
 
 import fi.helsinki.cs.tmc.edutestutils.MockStdio;
 import fi.helsinki.cs.tmc.edutestutils.Points;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.*;
 import static org.junit.Assert.assertTrue;
 
@@ -16,7 +19,11 @@ public class LiteracyComparisonTest {
 
     @Test
     public void literacyComparisonTest() {
-        LiteracyComparison.main(new String[]{});
+        try {
+            LiteracyComparison.main(new String[]{});
+        } catch (IOException ex) {
+            Logger.getLogger(LiteracyComparisonTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String[] output = io.getSysOut().split("\n");
 
         String[] expected = this.expected.split("\n");
