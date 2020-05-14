@@ -6,6 +6,8 @@ import java.util.List;
 public class AverageSensor implements Sensor {
 
     private List<Sensor> sensorList = new ArrayList();
+     private List<Integer> readings=new ArrayList<>(); 
+   
 
     public void addSensor(Sensor toAdd) {
         this.sensorList.add(toAdd);
@@ -26,24 +28,22 @@ public class AverageSensor implements Sensor {
         this.sensorList.stream().forEach(Sensor::setOff);
     }
 
-    @Override
+     @Override
     public int read() {
-        if (!this.isOn() || this.sensorList.isEmpty()) {
+        if (this.sensorList.size() == 0 || !this.isOn()) {
             throw new IllegalStateException();
         }
-        int sum = this.sensorList.stream().map(s -> s.read()).reduce(0, (a, b) -> Integer.sum(a, b)).intValue();
+
+        int reading = (int) this.sensorList.stream()
+                .mapToInt(sensor -> sensor.read())
+                .average()
+                .getAsDouble();
         
-        return sum / this.sensorList.size();
+        this.readings.add(reading);
+        return reading;
     }
 
     public List<Integer> readings() {
-        List<Integer> values = new ArrayList<Integer>();
-        for (Sensor s : this.sensorList) {
-            if (s instanceof TemperatureSensor) {
-                values.add(s.read());
-            }
-        }
-        return values;
-
+        return this.readings;
     }
 }
